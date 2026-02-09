@@ -43,8 +43,13 @@
       padding: 10px 4px;
     }
 
+    .brand a{
+      display:inline-block;
+    }
+
     .brand img{
       width: 220px;
+      display:block;
     }
 
     .smallTag{
@@ -161,7 +166,9 @@
   <div class="container">
     <div class="topbar">
       <div class="brand">
-        <img src="logo-blue.png" alt="TF Jones" />
+        <a href="https://www.tfjones.com" target="_blank" rel="noopener">
+          <img src="logo-blue.png" alt="TF Jones" />
+        </a>
       </div>
       <div class="smallTag">Feedback Portal</div>
     </div>
@@ -179,14 +186,15 @@
           <a
             class="btn btnPrimary"
             href="mailto:info@tfjones.co.uk?subject=Feedback%20for%20TF%20Jones">
-            What we did Bad?
+            How can we improve?
           </a>
 
           <a
             class="btn btnSecondary"
             href="https://tinyurl.com/28yfmzr6"
-            target="_blank">
-            What we did Good?
+            target="_blank"
+            rel="noopener">
+            Let us know what we did good!
           </a>
         </div>
       </div>
