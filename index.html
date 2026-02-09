@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="theme-color" content="#14384C" />
   <title>TF Jones | Feedback Portal</title>
-  <meta name="description" content="TF Jones feedback portal – message us directly or leave a Google review." />
+  <meta name="description" content="TF Jones feedback portal – share feedback or leave a Google review." />
 
   <style>
     :root{
@@ -93,23 +93,24 @@
     }
 
     .ctaRow{
-      margin-top: 18px;
+      margin-top: 22px;
       max-width: 360px;
       display:flex;
       flex-direction:column;
-      gap: 12px;
+      gap: 14px;
     }
 
     .btn{
       display:flex;
-      justify-content:space-between;
+      justify-content:center;
       align-items:center;
-      padding: 14px 16px;
+      padding: 16px;
       border-radius: 14px;
       text-decoration:none;
       font-weight: 800;
       box-shadow: 0 10px 26px rgba(11,31,43,.10);
       border: 1px solid rgba(20,56,76,.22);
+      font-size: 15px;
     }
 
     .btnPrimary{
@@ -120,24 +121,6 @@
     .btnSecondary{
       background:#fff;
       color: var(--navy);
-    }
-
-    .pill{
-      font-size: 12px;
-      font-weight: 800;
-      padding: 6px 10px;
-      border-radius: 999px;
-    }
-
-    .btnPrimary .pill{
-      background: rgba(237,255,28,.16);
-      color: var(--neon);
-      border:1px solid rgba(237,255,28,.35);
-    }
-
-    .btnSecondary .pill{
-      background: rgba(20,56,76,.08);
-      border:1px solid rgba(20,56,76,.16);
     }
 
     /* Photos */
@@ -165,20 +148,11 @@
       transform: translateX(-26px);
     }
 
-    /* Footer */
-    .note{
-      margin-top: 4px;
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 14px 16px;
-      font-size: 13px;
-      color: rgba(11,31,43,.78);
-    }
-
     @media(max-width:860px){
       .hero{ grid-template-columns:1fr; }
       .photo.small{ transform:none; }
       .brand img{ width:190px; }
+      .hero h1{ margin-top: 40px; }
     }
   </style>
 </head>
@@ -196,22 +170,23 @@
       <div>
         <h1>How did we do?</h1>
         <p>
-          We’re always looking to improve. If you have feedback (good or bad), message us directly.
-          If you’d like to leave a public review, you can do that too.
+          We’re always looking to improve. If you have feedback (good or bad),
+          send it directly to us. If you’d like to leave a public review, you can
+          do that too.
         </p>
 
         <div class="ctaRow">
-          <a class="btn btnPrimary"
-             href="mailto:info@tfjones.co.uk?subject=Feedback%20for%20TF%20Jones">
-            <span>Message us directly</span>
-            <span class="pill">Private</span>
+          <a
+            class="btn btnPrimary"
+            href="mailto:info@tfjones.co.uk?subject=Feedback%20for%20TF%20Jones">
+            Send us feedback
           </a>
 
-          <a class="btn btnSecondary"
-             href="https://tinyurl.com/28yfmzr6"
-             target="_blank">
-            <span>Leave a Google review</span>
-            <span class="pill">Google</span>
+          <a
+            class="btn btnSecondary"
+            href="https://tinyurl.com/28yfmzr6"
+            target="_blank">
+            Leave a Google review
           </a>
         </div>
       </div>
@@ -225,10 +200,6 @@
         </div>
       </div>
     </section>
-
-    <div class="note">
-      If you’d like a callback, please include your contact details in your message.
-    </div>
   </div>
 </body>
 </html>
