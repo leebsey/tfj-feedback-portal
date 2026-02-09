@@ -74,17 +74,6 @@
       overflow:hidden;
     }
 
-    .hero:after{
-      content:"";
-      position:absolute;
-      right: 44px;
-      top: 44px;
-      width: 72px;
-      height: 72px;
-      background: var(--neon);
-      border-radius: 14px;
-    }
-
     .hero h1{
       margin: 90px 0 0;
       font-size: clamp(36px, 5vw, 56px);
@@ -143,7 +132,6 @@
       overflow:hidden;
       box-shadow: 0 18px 50px rgba(11,31,43,.14);
       border: 1px solid rgba(11,31,43,.14);
-      /* default aspect ratio is free on desktop */
     }
 
     .photo img{
@@ -164,18 +152,8 @@
       .hero h1{ margin-top: 40px; }
     }
 
-    /* ✅ Mobile-specific polish */
+    /* Mobile polish */
     @media (max-width:600px){
-      /* Move/shrink neon square so it never overlaps the title */
-      .hero:after{
-        right: 14px;
-        top: 14px;
-        width: 46px;
-        height: 46px;
-        border-radius: 12px;
-      }
-
-      /* Pull the headline up so it feels less “pushed down” */
       .hero{
         padding: 18px;
       }
@@ -183,8 +161,6 @@
         margin: 26px 0 0;
         font-size: 42px;
       }
-
-      /* Buttons stay chunky but slightly tighter */
       .ctaRow{
         max-width: 100%;
         gap: 12px;
@@ -193,8 +169,6 @@
         padding: 14px;
         font-size: 15px;
       }
-
-      /* Make photos shorter (less scrolling) */
       .photo{
         aspect-ratio: 16 / 9;
       }
