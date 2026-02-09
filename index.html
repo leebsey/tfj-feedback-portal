@@ -7,12 +7,124 @@
   <title>TF Jones | Feedback Portal</title>
   <meta name="description" content="TF Jones feedback portal – message us directly or leave a Google review." />
 
-  <!-- Open Graph -->
   <meta property="og:title" content="TF Jones Feedback Portal" />
   <meta property="og:description" content="Message us directly or leave a Google review." />
   <meta property="og:type" content="website" />
 
-  <link rel="stylesheet" href="styles.css" />
+  <style>
+    :root{
+      --navy:#14384C;
+      --neon:#EDFF1C;
+      --bg0:#081218;
+      --bg1:#0a1720;
+      --card:rgba(255,255,255,0.06);
+      --cardBorder:rgba(255,255,255,0.12);
+      --text:#ffffff;
+      --muted:rgba(255,255,255,0.78);
+      --shadow: 0 18px 60px rgba(0,0,0,0.38);
+      --radius: 22px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(1200px 700px at 10% 0%, rgba(237,255,28,0.10), transparent 60%),
+        radial-gradient(900px 600px at 90% 10%, rgba(20,56,76,0.60), transparent 55%),
+        linear-gradient(180deg, var(--bg1), var(--bg0));
+    }
+    .wrap{
+      max-width:760px;
+      margin:0 auto;
+      padding:24px 16px 28px;
+      min-height:100%;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+    .card{
+      background:var(--card);
+      border:1px solid var(--cardBorder);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+    .hero{ padding:18px 18px 16px; }
+    .brand{ display:flex; align-items:center; gap:14px; }
+    .logo{
+      width:52px; height:52px; border-radius:18px;
+      display:grid; place-items:center;
+      background: rgba(237,255,28,0.10);
+      border:1px solid rgba(237,255,28,0.25);
+      color: var(--neon);
+      flex:0 0 auto;
+    }
+    .logo svg{width:32px;height:32px}
+    .kicker{ font-weight:850; letter-spacing:0.3px; opacity:0.92; }
+    h1{ margin:2px 0 0; font-size:26px; line-height:1.1; }
+    .sub{ margin:12px 0 0; color:var(--muted); line-height:1.45; }
+
+    .actions{ padding:14px; display:flex; flex-direction:column; gap:12px; }
+    .btn{
+      display:flex; flex-direction:column; gap:6px;
+      padding:14px 14px;
+      border-radius:18px;
+      text-decoration:none;
+      font-weight:900;
+      letter-spacing:0.2px;
+      border:1px solid transparent;
+      transition: transform 0.08s ease, filter 0.08s ease;
+    }
+    .btn-sub{
+      font-weight:650;
+      letter-spacing:0;
+      font-size:13px;
+      opacity:0.92;
+    }
+    .primary{
+      background: var(--neon);
+      color: var(--navy);
+      border-color: rgba(237,255,28,0.60);
+    }
+    .primary .btn-sub{ color: rgba(20,56,76,0.86); }
+    .secondary{
+      background: rgba(255,255,255,0.08);
+      color:#fff;
+      border-color: rgba(255,255,255,0.14);
+    }
+    .secondary .btn-sub{ color: rgba(255,255,255,0.80); }
+    .btn:hover{ transform: translateY(-1px); filter: brightness(1.03); }
+    .btn:active{ transform: translateY(0px); filter: brightness(0.98); }
+
+    .fineprint{ margin-top:2px; color:rgba(255,255,255,0.66); font-size:13px; line-height:1.35; }
+
+    .footer{
+      margin-top:auto;
+      padding:14px 10px 6px;
+      text-align:center;
+      color:rgba(255,255,255,0.66);
+      font-size:12.5px;
+    }
+    .footer-inner{
+      display:flex; justify-content:center; flex-wrap:wrap; gap:8px; align-items:center;
+    }
+    .divider{opacity:0.5}
+    .footer-link{
+      color:rgba(255,255,255,0.88);
+      text-decoration:none;
+      border-bottom:1px dotted rgba(255,255,255,0.35);
+    }
+    .footer-link:hover{ color:#fff; border-bottom-color: rgba(237,255,28,0.55); }
+
+    /* nicer on big screens */
+    @media (min-width: 640px){
+      .hero{ padding:22px 22px 18px; }
+      .actions{ padding:16px; }
+      h1{ font-size:28px; }
+    }
+  </style>
 </head>
 
 <body>
@@ -20,17 +132,14 @@
     <header class="hero card">
       <div class="brand">
         <div class="logo" aria-hidden="true">
-          <svg viewBox="0 0 64 64" role="img">
-            <circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="4"></circle>
-            <path d="M18 22h28M26 22v20M26 42h12"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="4"
-                  stroke-linecap="round"/>
+          <!-- Simple placeholder logo -->
+          <svg viewBox="0 0 64 64" role="img" aria-hidden="true">
+            <circle cx="32" cy="32" r="28" fill="none" stroke="currentColor" stroke-width="4"></circle>
+            <path d="M18 24h28M26 24v18M26 42h14"
+                  fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
           </svg>
         </div>
-
-        <div class="brand-text">
+        <div>
           <div class="kicker">TF Jones</div>
           <h1>Feedback Portal</h1>
         </div>
@@ -41,25 +150,13 @@
       </p>
     </header>
 
-    <section class="card actions">
-      <!-- PRIVATE FEEDBACK -->
-      <a
-        class="btn primary"
-        href="YOUR_FEEDBACK_FORM_LINK_HERE"
-        target="_blank"
-        rel="noopener"
-      >
+    <section class="card actions" aria-label="Actions">
+      <a class="btn primary" href="YOUR_FEEDBACK_FORM_LINK_HERE" target="_blank" rel="noopener">
         Message us directly
         <span class="btn-sub">Private feedback to TF Jones</span>
       </a>
 
-      <!-- GOOGLE REVIEW -->
-      <a
-        class="btn secondary"
-        href="https://tinyurl.com/28yfmzr6"
-        target="_blank"
-        rel="noopener"
-      >
+      <a class="btn secondary" href="https://tinyurl.com/28yfmzr6" target="_blank" rel="noopener">
         Leave a Google review
         <span class="btn-sub">Public review on Google</span>
       </a>
