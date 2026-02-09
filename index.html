@@ -15,166 +15,390 @@
     :root{
       --navy:#14384C;
       --neon:#EDFF1C;
-      --bg0:#081218;
-      --bg1:#0a1720;
-      --card:rgba(255,255,255,0.06);
-      --cardBorder:rgba(255,255,255,0.12);
-      --text:#ffffff;
-      --muted:rgba(255,255,255,0.78);
-      --shadow: 0 18px 60px rgba(0,0,0,0.38);
-      --radius: 22px;
+      --mint:#BFF3D0;     /* close to your website’s green panel */
+      --ink:#0b1f2b;
+      --muted: rgba(11,31,43,.78);
+      --line: rgba(11,31,43,.14);
+      --card:#ffffff;
+      --shadow: 0 18px 50px rgba(11,31,43,.18);
+      --radius: 20px;
     }
+
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      color:var(--text);
+      color:var(--ink);
       background:
-        radial-gradient(1200px 700px at 10% 0%, rgba(237,255,28,0.10), transparent 60%),
-        radial-gradient(900px 600px at 90% 10%, rgba(20,56,76,0.60), transparent 55%),
-        linear-gradient(180deg, var(--bg1), var(--bg0));
+        linear-gradient(180deg, #ffffff 0%, #fbfcfd 100%);
     }
-    .wrap{
-      max-width:760px;
-      margin:0 auto;
-      padding:24px 16px 28px;
-      min-height:100%;
+
+    .container{
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 18px 16px 40px;
+      min-height: 100%;
       display:flex;
       flex-direction:column;
+      gap: 18px;
+    }
+
+    /* Top bar (simple, like a mini version of the new site) */
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
       gap:14px;
+      padding: 10px 4px;
     }
-    .card{
-      background:var(--card);
-      border:1px solid var(--cardBorder);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      backdrop-filter: blur(10px);
-    }
-    .hero{ padding:18px 18px 16px; }
-    .brand{ display:flex; align-items:center; gap:14px; }
-    .logo{
-      width:52px; height:52px; border-radius:18px;
-      display:grid; place-items:center;
-      background: rgba(237,255,28,0.10);
-      border:1px solid rgba(237,255,28,0.25);
-      color: var(--neon);
-      flex:0 0 auto;
-    }
-    .logo svg{width:32px;height:32px}
-    .kicker{ font-weight:850; letter-spacing:0.3px; opacity:0.92; }
-    h1{ margin:2px 0 0; font-size:26px; line-height:1.1; }
-    .sub{ margin:12px 0 0; color:var(--muted); line-height:1.45; }
 
-    .actions{ padding:14px; display:flex; flex-direction:column; gap:12px; }
-    .btn{
-      display:flex; flex-direction:column; gap:6px;
-      padding:14px 14px;
-      border-radius:18px;
+    .brand{
+      display:flex;
+      align-items:flex-end;
+      gap:12px;
       text-decoration:none;
-      font-weight:900;
-      letter-spacing:0.2px;
-      border:1px solid transparent;
-      transition: transform 0.08s ease, filter 0.08s ease;
+      color:inherit;
     }
-    .btn-sub{
-      font-weight:650;
-      letter-spacing:0;
-      font-size:13px;
-      opacity:0.92;
+
+    .mark{
+      width:44px;height:44px;
+      border-radius:14px;
+      background: var(--navy);
+      display:grid;place-items:center;
+      box-shadow: 0 10px 24px rgba(20,56,76,.25);
+      position:relative;
+      overflow:hidden;
     }
-    .primary{
+    .mark:after{
+      content:"";
+      position:absolute;
+      inset:auto -18px -18px auto;
+      width:56px;height:56px;
       background: var(--neon);
-      color: var(--navy);
-      border-color: rgba(237,255,28,0.60);
+      transform: rotate(20deg);
+      opacity:.95;
     }
-    .primary .btn-sub{ color: rgba(20,56,76,0.86); }
-    .secondary{
-      background: rgba(255,255,255,0.08);
-      color:#fff;
-      border-color: rgba(255,255,255,0.14);
-    }
-    .secondary .btn-sub{ color: rgba(255,255,255,0.80); }
-    .btn:hover{ transform: translateY(-1px); filter: brightness(1.03); }
-    .btn:active{ transform: translateY(0px); filter: brightness(0.98); }
+    .mark svg{ position:relative; z-index:1; width:26px; height:26px; color:#fff; }
 
-    .fineprint{ margin-top:2px; color:rgba(255,255,255,0.66); font-size:13px; line-height:1.35; }
+    .brandtext .name{
+      font-weight:900;
+      letter-spacing:.2px;
+      font-size: 20px;
+      line-height:1;
+    }
+    .brandtext .tag{
+      margin-top:6px;
+      font-size: 11.5px;
+      font-style: italic;
+      letter-spacing:.6px;
+      color: rgba(11,31,43,.60);
+      text-transform: uppercase;
+    }
 
-    .footer{
-      margin-top:auto;
-      padding:14px 10px 6px;
-      text-align:center;
-      color:rgba(255,255,255,0.66);
-      font-size:12.5px;
+    .nav{
+      display:flex;
+      gap: 16px;
+      align-items:center;
+      color: rgba(11,31,43,.70);
+      font-weight: 650;
+      font-size: 13.5px;
     }
-    .footer-inner{
-      display:flex; justify-content:center; flex-wrap:wrap; gap:8px; align-items:center;
-    }
-    .divider{opacity:0.5}
-    .footer-link{
-      color:rgba(255,255,255,0.88);
+    .nav a{
+      color:inherit;
       text-decoration:none;
-      border-bottom:1px dotted rgba(255,255,255,0.35);
+      padding: 8px 10px;
+      border-radius: 12px;
     }
-    .footer-link:hover{ color:#fff; border-bottom-color: rgba(237,255,28,0.55); }
+    .nav a:hover{ background: rgba(20,56,76,.06); }
 
-    /* nicer on big screens */
-    @media (min-width: 640px){
-      .hero{ padding:22px 22px 18px; }
-      .actions{ padding:16px; }
-      h1{ font-size:28px; }
+    /* Hero section */
+    .hero{
+      background: var(--mint);
+      border-radius: 26px;
+      padding: 26px;
+      display:grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 22px;
+      align-items:center;
+      box-shadow: 0 22px 60px rgba(11,31,43,.14);
+      position:relative;
+      overflow:hidden;
+    }
+
+    /* little neon square accent like site */
+    .hero:after{
+      content:"";
+      position:absolute;
+      right: 44px;
+      top: 44px;
+      width: 72px;
+      height: 72px;
+      background: var(--neon);
+      opacity: .95;
+    }
+
+    .hero h1{
+      margin:0;
+      font-size: clamp(36px, 5vw, 54px);
+      line-height: 0.95;
+      letter-spacing: -0.8px;
+      color: var(--navy);
+    }
+
+    .hero p{
+      margin: 14px 0 0;
+      max-width: 56ch;
+      line-height: 1.55;
+      color: rgba(11,31,43,.84);
+      font-size: 15.5px;
+    }
+
+    .ctaRow{
+      margin-top: 18px;
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .btn{
+      appearance:none;
+      border: 1px solid rgba(20,56,76,.24);
+      background: #fff;
+      color: var(--navy);
+      border-radius: 14px;
+      padding: 14px 16px;
+      font-weight: 850;
+      letter-spacing: .1px;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      box-shadow: 0 10px 26px rgba(11,31,43,.10);
+      transition: transform .08s ease, filter .08s ease, background .08s ease;
+      min-width: 220px;
+      justify-content:center;
+    }
+    .btn:hover{ transform: translateY(-1px); filter: brightness(1.02); }
+    .btn:active{ transform: translateY(0px); filter: brightness(.98); }
+
+    .btnPrimary{
+      background: var(--navy);
+      border-color: rgba(20,56,76,.22);
+      color:#fff;
+    }
+    .btnPrimary .pill{
+      background: rgba(237,255,28,.16);
+      border: 1px solid rgba(237,255,28,.35);
+      color: var(--neon);
+    }
+
+    .btnSecondary{
+      background:#fff;
+      color: var(--navy);
+    }
+    .btnSecondary .pill{
+      background: rgba(20,56,76,.08);
+      border: 1px solid rgba(20,56,76,.16);
+      color: rgba(20,56,76,.92);
+    }
+
+    .pill{
+      font-size: 12px;
+      font-weight: 850;
+      padding: 6px 10px;
+      border-radius: 999px;
+      white-space:nowrap;
+    }
+
+    /* Image stack (optional) */
+    .stack{
+      display:grid;
+      gap: 14px;
+      justify-items:end;
+      position:relative;
+      z-index:1; /* above neon square */
+    }
+
+    .shot{
+      width: 100%;
+      max-width: 440px;
+      aspect-ratio: 16/10;
+      border-radius: 20px;
+      background: #ffffff;
+      border: 1px solid rgba(11,31,43,.14);
+      box-shadow: 0 18px 50px rgba(11,31,43,.14);
+      overflow:hidden;
+      position:relative;
+    }
+    .shot img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      display:block;
+    }
+    /* make the second shot offset like the screenshot collage */
+    .shot.small{
+      max-width: 380px;
+      aspect-ratio: 16/11;
+      transform: translateX(-26px);
+    }
+
+    /* fallback pattern if you don't add images */
+    .fallback{
+      background:
+        radial-gradient(600px 260px at 30% 30%, rgba(237,255,28,.18), transparent 60%),
+        radial-gradient(540px 260px at 70% 80%, rgba(20,56,76,.16), transparent 55%),
+        linear-gradient(180deg, #ffffff, #f5f7f9);
+    }
+    .fallback:before{
+      content:"TFJONES";
+      position:absolute;
+      left:18px;
+      bottom:16px;
+      font-weight:900;
+      letter-spacing:.9px;
+      color: rgba(20,56,76,.55);
+      font-size: 16px;
+    }
+
+    /* Bottom note */
+    .note{
+      margin-top: 4px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      display:flex;
+      justify-content:space-between;
+      gap: 12px;
+      align-items:center;
+    }
+    .note .left{
+      color: rgba(11,31,43,.82);
+      font-size: 13.5px;
+      line-height: 1.35;
+    }
+    .note .right{
+      display:flex;
+      gap: 10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      font-size: 13px;
+    }
+    .note a{
+      color: rgba(20,56,76,.92);
+      text-decoration:none;
+      border-bottom: 1px dotted rgba(20,56,76,.35);
+      padding-bottom: 1px;
+    }
+    .note a:hover{ border-bottom-color: rgba(237,255,28,.85); }
+
+    /* Mobile */
+    @media (max-width: 860px){
+      .nav{ display:none; }
+      .hero{
+        grid-template-columns: 1fr;
+        padding: 20px;
+      }
+      .hero:after{
+        right: 18px;
+        top: 18px;
+        width: 54px;
+        height: 54px;
+      }
+      .stack{
+        justify-items:stretch;
+      }
+      .shot, .shot.small{
+        max-width: 100%;
+        transform:none;
+      }
+      .btn{
+        width:100%;
+        min-width: 0;
+      }
+      .note{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+      .note .right{ justify-content:flex-start; }
     }
   </style>
 </head>
 
 <body>
-  <main class="wrap">
-    <header class="hero card">
-      <div class="brand">
-        <div class="logo" aria-hidden="true">
-          <!-- Simple placeholder logo -->
-          <svg viewBox="0 0 64 64" role="img" aria-hidden="true">
-            <circle cx="32" cy="32" r="28" fill="none" stroke="currentColor" stroke-width="4"></circle>
-            <path d="M18 24h28M26 24v18M26 42h14"
-                  fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+  <div class="container">
+    <div class="topbar">
+      <a class="brand" href="#" aria-label="TF Jones">
+        <div class="mark" aria-hidden="true">
+          <!-- simple TFJ mark placeholder -->
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M6 6h12M10 6v12M10 18h8" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"/>
           </svg>
         </div>
-        <div>
-          <div class="kicker">TF Jones</div>
-          <h1>Feedback Portal</h1>
+        <div class="brandtext">
+          <div class="name">TFJONES</div>
+          <div class="tag">Enhancing Building Safety</div>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Navigation">
+        <a href="#" onclick="return false;">Home</a>
+        <a href="#" onclick="return false;">Our Services</a>
+        <a href="#" onclick="return false;">Mission &amp; Values</a>
+        <a href="#" onclick="return false;">Get in Touch</a>
+      </nav>
+    </div>
+
+    <section class="hero" aria-label="Feedback Portal">
+      <div>
+        <h1>How did we do?</h1>
+        <p>
+          We’re always looking to improve. If you have feedback (good or bad), message us directly.
+          If you’d like to leave a public review, you can do that too.
+        </p>
+
+        <div class="ctaRow">
+          <a class="btn btnPrimary" href="YOUR_FEEDBACK_FORM_LINK_HERE" target="_blank" rel="noopener">
+            Message us directly
+            <span class="pill">Private</span>
+          </a>
+
+          <a class="btn btnSecondary" href="https://tinyurl.com/28yfmzr6" target="_blank" rel="noopener">
+            Leave a Google review
+            <span class="pill">Google</span>
+          </a>
         </div>
       </div>
 
-      <p class="sub">
-        Thanks for having us. Choose an option below — we read every message and use it to improve.
-      </p>
-    </header>
-
-    <section class="card actions" aria-label="Actions">
-      <a class="btn primary" href="YOUR_FEEDBACK_FORM_LINK_HERE" target="_blank" rel="noopener">
-        Message us directly
-        <span class="btn-sub">Private feedback to TF Jones</span>
-      </a>
-
-      <a class="btn secondary" href="https://tinyurl.com/28yfmzr6" target="_blank" rel="noopener">
-        Leave a Google review
-        <span class="btn-sub">Public review on Google</span>
-      </a>
-
-      <div class="fineprint">
-        If you’d like a callback, please include your contact details in the message form.
+      <div class="stack" aria-label="TF Jones imagery">
+        <!-- Optional images: replace src with your real URLs, or leave blank for the fallback look -->
+        <div class="shot fallback">
+          <!-- Example:
+          <img src="HERO_IMAGE_URL" alt="TF Jones team on site" />
+          -->
+        </div>
+        <div class="shot small fallback">
+          <!-- Example:
+          <img src="SECOND_IMAGE_URL" alt="TF Jones van" />
+          -->
+        </div>
       </div>
     </section>
 
-    <footer class="footer">
-      <div class="footer-inner">
-        <div>TF Jones Property Services Ltd</div>
-        <div class="divider">•</div>
-        <a class="footer-link" href="tel:+441234567890">Call us</a>
-        <div class="divider">•</div>
-        <a class="footer-link" href="mailto:info@tfjones.co.uk">Email us</a>
+    <div class="note">
+      <div class="left">
+        If you’d like a callback, please include your contact details in the message form.
       </div>
-    </footer>
-  </main>
+      <div class="right">
+        <span>TF Jones Property Services Ltd</span>
+        <span>•</span>
+        <a href="tel:+441234567890">Call us</a>
+        <span>•</span>
+        <a href="mailto:info@tfjones.co.uk">Email us</a>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
