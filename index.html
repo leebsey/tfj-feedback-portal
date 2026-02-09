@@ -17,7 +17,6 @@
       --neon:#EDFF1C;
       --mint:#BFF3D0;
       --ink:#0b1f2b;
-      --muted: rgba(11,31,43,.78);
       --line: rgba(11,31,43,.14);
       --card:#ffffff;
       --shadow: 0 18px 50px rgba(11,31,43,.18);
@@ -25,10 +24,9 @@
     }
 
     *{box-sizing:border-box}
-    html,body{height:100%}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
       color:var(--ink);
       background: linear-gradient(180deg, #ffffff 0%, #fbfcfd 100%);
     }
@@ -37,52 +35,31 @@
       max-width: 1120px;
       margin: 0 auto;
       padding: 18px 16px 40px;
-      min-height: 100%;
       display:flex;
       flex-direction:column;
       gap: 18px;
     }
 
-    /* Top bar */
+    /* Header */
     .topbar{
       display:flex;
-      align-items:center;
       justify-content:space-between;
-      gap:14px;
+      align-items:center;
       padding: 10px 4px;
     }
 
-    .brand{
-      display:flex;
-      align-items:center;
-      gap: 12px;
-      text-decoration:none;
-      color:inherit;
-      min-width: 260px;
-    }
-
     .brand img{
-      width: 210px;
-      height: auto;
-      display:block;
+      width: 220px;
     }
 
-    .nav{
-      display:flex;
-      gap: 16px;
-      align-items:center;
-      color: rgba(11,31,43,.70);
+    .smallTag{
+      font-size: 13px;
       font-weight: 650;
-      font-size: 13.5px;
-      white-space:nowrap;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(20,56,76,.05);
+      border: 1px solid rgba(20,56,76,.12);
     }
-    .nav a{
-      color:inherit;
-      text-decoration:none;
-      padding: 8px 10px;
-      border-radius: 12px;
-    }
-    .nav a:hover{ background: rgba(20,56,76,.06); }
 
     /* Hero */
     .hero{
@@ -92,13 +69,11 @@
       display:grid;
       grid-template-columns: 1.1fr 0.9fr;
       gap: 22px;
-      align-items:center;
       box-shadow: 0 22px 60px rgba(11,31,43,.14);
       position:relative;
       overflow:hidden;
     }
 
-    /* neon accent like the new site */
     .hero:after{
       content:"";
       position:absolute;
@@ -107,57 +82,46 @@
       width: 72px;
       height: 72px;
       background: var(--neon);
-      opacity: .95;
     }
 
     .hero h1{
-      margin:0;
+      margin: 90px 0 0;
       font-size: clamp(36px, 5vw, 56px);
-      line-height: 0.95;
-      letter-spacing: -0.8px;
       color: var(--navy);
+      letter-spacing:-0.8px;
     }
 
     .hero p{
       margin: 14px 0 0;
-      max-width: 58ch;
+      max-width: 60ch;
       line-height: 1.55;
-      color: rgba(11,31,43,.84);
-      font-size: 15.5px;
     }
 
     .ctaRow{
       margin-top: 18px;
+      max-width: 360px;
       display:flex;
-      flex-wrap:wrap;
+      flex-direction:column;
       gap: 12px;
-      align-items:stretch;
     }
 
     .btn{
-      appearance:none;
-      border: 1px solid rgba(20,56,76,.22);
-      border-radius: 14px;
-      padding: 14px 16px;
-      font-weight: 850;
-      letter-spacing: .1px;
-      text-decoration:none;
-      display:inline-flex;
+      display:flex;
+      justify-content:space-between;
       align-items:center;
-      gap: 10px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      text-decoration:none;
+      font-weight: 800;
       box-shadow: 0 10px 26px rgba(11,31,43,.10);
-      transition: transform .08s ease, filter .08s ease, background .08s ease;
-      min-width: 240px;
-      justify-content:center;
-      user-select:none;
+      border: 1px solid rgba(20,56,76,.22);
     }
-    .btn:hover{ transform: translateY(-1px); filter: brightness(1.02); }
-    .btn:active{ transform: translateY(0px); filter: brightness(.98); }
 
     .btnPrimary{
       background: var(--navy);
       color:#fff;
     }
+
     .btnSecondary{
       background:#fff;
       color: var(--navy);
@@ -165,138 +129,78 @@
 
     .pill{
       font-size: 12px;
-      font-weight: 850;
+      font-weight: 800;
       padding: 6px 10px;
       border-radius: 999px;
-      white-space:nowrap;
-      border:1px solid transparent;
     }
+
     .btnPrimary .pill{
       background: rgba(237,255,28,.16);
-      border-color: rgba(237,255,28,.35);
       color: var(--neon);
+      border:1px solid rgba(237,255,28,.35);
     }
+
     .btnSecondary .pill{
       background: rgba(20,56,76,.08);
-      border-color: rgba(20,56,76,.16);
-      color: rgba(20,56,76,.92);
+      border:1px solid rgba(20,56,76,.16);
     }
 
-    /* Right-side “website-like” image blocks */
-    .stack{
+    /* Photos */
+    .photos{
       display:grid;
       gap: 14px;
-      justify-items:end;
-      position:relative;
-      z-index:1; /* above neon square */
+      z-index:1;
     }
 
-    .shot{
-      width: 100%;
-      max-width: 460px;
-      aspect-ratio: 16/10;
+    .photo{
+      position:relative;
       border-radius: 22px;
-      background: #ffffff;
-      border: 1px solid rgba(11,31,43,.14);
-      box-shadow: 0 18px 50px rgba(11,31,43,.14);
       overflow:hidden;
-      position:relative;
+      box-shadow: 0 18px 50px rgba(11,31,43,.14);
+      border: 1px solid rgba(11,31,43,.14);
     }
 
-    /* subtle TFJ watermark + soft gradient so it feels “designed”, not empty */
-    .shot::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        radial-gradient(700px 260px at 25% 15%, rgba(237,255,28,.20), transparent 62%),
-        radial-gradient(540px 260px at 70% 85%, rgba(20,56,76,.12), transparent 55%),
-        linear-gradient(180deg, #ffffff, #f6f8fa);
-      pointer-events:none;
+    .photo img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      display:block;
     }
 
-    .shot::after{
+    /* watermark */
+    .photo::after{
       content:"";
       position:absolute;
-      left:18px;
-      bottom:16px;
-      width: 170px;
-      height: 34px;
+      left:16px;
+      bottom:14px;
+      width: 150px;
+      height: 30px;
       background-image: url("logo-blue.png");
-      background-repeat:no-repeat;
       background-size: contain;
-      opacity: .45;
-      filter: grayscale(10%);
-      pointer-events:none;
+      background-repeat:no-repeat;
+      opacity:.35;
     }
 
-    .shot.small{
-      max-width: 410px;
-      aspect-ratio: 16/11;
+    .photo.small{
       transform: translateX(-26px);
     }
 
-    /* Footer note */
+    /* Footer */
     .note{
       margin-top: 4px;
-      background: var(--card);
-      border: 1px solid var(--line);
+      border:1px solid var(--line);
       border-radius: var(--radius);
       padding: 14px 16px;
       display:flex;
       justify-content:space-between;
-      gap: 12px;
-      align-items:center;
-    }
-    .note .left{
-      color: rgba(11,31,43,.82);
-      font-size: 13.5px;
-      line-height: 1.35;
-    }
-    .note .right{
-      display:flex;
-      gap: 10px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
       font-size: 13px;
-      align-items:center;
     }
-    .note a{
-      color: rgba(20,56,76,.92);
-      text-decoration:none;
-      border-bottom: 1px dotted rgba(20,56,76,.35);
-      padding-bottom: 1px;
-    }
-    .note a:hover{ border-bottom-color: rgba(237,255,28,.85); }
 
-    @media (max-width: 860px){
-      .nav{ display:none; }
-      .hero{
-        grid-template-columns: 1fr;
-        padding: 20px;
-      }
-      .hero:after{
-        right: 18px;
-        top: 18px;
-        width: 54px;
-        height: 54px;
-      }
-      .stack{ justify-items:stretch; }
-      .shot, .shot.small{
-        max-width: 100%;
-        transform:none;
-      }
-      .btn{
-        width:100%;
-        min-width: 0;
-      }
-      .brand{ min-width: 0; }
-      .brand img{ width: 185px; }
-      .note{
-        flex-direction:column;
-        align-items:flex-start;
-      }
-      .note .right{ justify-content:flex-start; }
+    @media(max-width:860px){
+      .hero{ grid-template-columns:1fr; }
+      .photo.small{ transform:none; }
+      .brand img{ width:190px; }
+      .note{ flex-direction:column; gap:8px; }
     }
   </style>
 </head>
@@ -304,20 +208,13 @@
 <body>
   <div class="container">
     <div class="topbar">
-      <a class="brand" href="#" onclick="return false;" aria-label="TF Jones">
-        <!-- Uses your uploaded logo (rename to logo-blue.png) -->
-        <img src="logo-blue.png" alt="TFJONES — Enhancing Building Safety" />
-      </a>
-
-      <nav class="nav" aria-label="Navigation">
-        <a href="#" onclick="return false;">Home</a>
-        <a href="#" onclick="return false;">Our Services</a>
-        <a href="#" onclick="return false;">Mission &amp; Values</a>
-        <a href="#" onclick="return false;">Get in Touch</a>
-      </nav>
+      <div class="brand">
+        <img src="logo-blue.png" alt="TF Jones" />
+      </div>
+      <div class="smallTag">Feedback Portal</div>
     </div>
 
-    <section class="hero" aria-label="Feedback Portal">
+    <section class="hero">
       <div>
         <h1>How did we do?</h1>
         <p>
@@ -326,35 +223,31 @@
         </p>
 
         <div class="ctaRow">
-          <a class="btn btnPrimary" href="YOUR_FEEDBACK_FORM_LINK_HERE" target="_blank" rel="noopener">
-            Message us directly
+          <a class="btn btnPrimary" href="https://forms.gle/oizcJ9iw8Cukfutu9" target="_blank">
+            <span>Message us directly</span>
             <span class="pill">Private</span>
           </a>
 
-          <a class="btn btnSecondary" href="https://tinyurl.com/28yfmzr6" target="_blank" rel="noopener">
-            Leave a Google review
+          <a class="btn btnSecondary" href="https://tinyurl.com/28yfmzr6" target="_blank">
+            <span>Leave a Google review</span>
             <span class="pill">Google</span>
           </a>
         </div>
       </div>
 
-      <div class="stack" aria-label="TF Jones brand blocks">
-        <div class="shot" aria-hidden="true"></div>
-        <div class="shot small" aria-hidden="true"></div>
+      <div class="photos">
+        <div class="photo">
+          <img src="work pic.png" alt="TF Jones team at work" />
+        </div>
+        <div class="photo small">
+          <img src="van pic.png" alt="TF Jones van" />
+        </div>
       </div>
     </section>
 
     <div class="note">
-      <div class="left">
-        If you’d like a callback, please include your contact details in the message form.
-      </div>
-      <div class="right">
-        <span>TF Jones Property Services Ltd</span>
-        <span>•</span>
-        <a href="tel:+441234567890">Call us</a>
-        <span>•</span>
-        <a href="mailto:info@tfjones.co.uk">Email us</a>
-      </div>
+      <span>If you’d like a callback, please include your contact details in the message form.</span>
+      <span>TF Jones Property Services Ltd • <a href="mailto:info@tfjones.co.uk">Email us</a></span>
     </div>
   </div>
 </body>
