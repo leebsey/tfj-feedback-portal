@@ -82,6 +82,7 @@
       width: 72px;
       height: 72px;
       background: var(--neon);
+      border-radius: 14px;
     }
 
     .hero h1{
@@ -99,7 +100,7 @@
 
     .ctaRow{
       margin-top: 22px;
-      max-width: 360px;
+      max-width: 420px;
       display:flex;
       flex-direction:column;
       gap: 14px;
@@ -116,6 +117,8 @@
       box-shadow: 0 10px 26px rgba(11,31,43,.10);
       border: 1px solid rgba(20,56,76,.22);
       font-size: 15px;
+      text-align:center;
+      white-space: nowrap;
     }
 
     .btnPrimary{
@@ -140,6 +143,7 @@
       overflow:hidden;
       box-shadow: 0 18px 50px rgba(11,31,43,.14);
       border: 1px solid rgba(11,31,43,.14);
+      /* default aspect ratio is free on desktop */
     }
 
     .photo img{
@@ -159,6 +163,45 @@
       .brand img{ width:190px; }
       .hero h1{ margin-top: 40px; }
     }
+
+    /* ✅ Mobile-specific polish */
+    @media (max-width:600px){
+      /* Move/shrink neon square so it never overlaps the title */
+      .hero:after{
+        right: 14px;
+        top: 14px;
+        width: 46px;
+        height: 46px;
+        border-radius: 12px;
+      }
+
+      /* Pull the headline up so it feels less “pushed down” */
+      .hero{
+        padding: 18px;
+      }
+      .hero h1{
+        margin: 26px 0 0;
+        font-size: 42px;
+      }
+
+      /* Buttons stay chunky but slightly tighter */
+      .ctaRow{
+        max-width: 100%;
+        gap: 12px;
+      }
+      .btn{
+        padding: 14px;
+        font-size: 15px;
+      }
+
+      /* Make photos shorter (less scrolling) */
+      .photo{
+        aspect-ratio: 16 / 9;
+      }
+      .photo img{
+        height: 100%;
+      }
+    }
   </style>
 </head>
 
@@ -177,23 +220,20 @@
       <div>
         <h1>How did we do?</h1>
         <p>
-          We’re always looking to improve. If you have feedback (good or bad),
-          send it directly to us. If you’d like to leave a public review, you can
-          do that too.
+          We’re always looking to improve. If you have feedback (good or bad), send it directly to us.
+          If you’d like to leave a public review, you can do that too.
         </p>
 
         <div class="ctaRow">
-          <a
-            class="btn btnPrimary"
-            href="mailto:info@tfjones.co.uk?subject=Feedback%20for%20TF%20Jones">
+          <a class="btn btnPrimary"
+             href="mailto:info@tfjones.co.uk?subject=Feedback%20for%20TF%20Jones">
             We Can Do Better
           </a>
 
-          <a
-            class="btn btnSecondary"
-            href="https://tinyurl.com/28yfmzr6"
-            target="_blank"
-            rel="noopener">
+          <a class="btn btnSecondary"
+             href="https://tinyurl.com/28yfmzr6"
+             target="_blank"
+             rel="noopener">
             We Did a Good Job
           </a>
         </div>
