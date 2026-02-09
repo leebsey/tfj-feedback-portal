@@ -15,7 +15,7 @@
     :root{
       --navy:#14384C;
       --neon:#EDFF1C;
-      --mint:#BFF3D0;     /* close to your website’s green panel */
+      --mint:#BFF3D0;
       --ink:#0b1f2b;
       --muted: rgba(11,31,43,.78);
       --line: rgba(11,31,43,.14);
@@ -30,8 +30,7 @@
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
       color:var(--ink);
-      background:
-        linear-gradient(180deg, #ffffff 0%, #fbfcfd 100%);
+      background: linear-gradient(180deg, #ffffff 0%, #fbfcfd 100%);
     }
 
     .container{
@@ -44,7 +43,7 @@
       gap: 18px;
     }
 
-    /* Top bar (simple, like a mini version of the new site) */
+    /* Top bar */
     .topbar{
       display:flex;
       align-items:center;
@@ -55,45 +54,17 @@
 
     .brand{
       display:flex;
-      align-items:flex-end;
-      gap:12px;
+      align-items:center;
+      gap: 12px;
       text-decoration:none;
       color:inherit;
+      min-width: 260px;
     }
 
-    .mark{
-      width:44px;height:44px;
-      border-radius:14px;
-      background: var(--navy);
-      display:grid;place-items:center;
-      box-shadow: 0 10px 24px rgba(20,56,76,.25);
-      position:relative;
-      overflow:hidden;
-    }
-    .mark:after{
-      content:"";
-      position:absolute;
-      inset:auto -18px -18px auto;
-      width:56px;height:56px;
-      background: var(--neon);
-      transform: rotate(20deg);
-      opacity:.95;
-    }
-    .mark svg{ position:relative; z-index:1; width:26px; height:26px; color:#fff; }
-
-    .brandtext .name{
-      font-weight:900;
-      letter-spacing:.2px;
-      font-size: 20px;
-      line-height:1;
-    }
-    .brandtext .tag{
-      margin-top:6px;
-      font-size: 11.5px;
-      font-style: italic;
-      letter-spacing:.6px;
-      color: rgba(11,31,43,.60);
-      text-transform: uppercase;
+    .brand img{
+      width: 210px;
+      height: auto;
+      display:block;
     }
 
     .nav{
@@ -103,6 +74,7 @@
       color: rgba(11,31,43,.70);
       font-weight: 650;
       font-size: 13.5px;
+      white-space:nowrap;
     }
     .nav a{
       color:inherit;
@@ -112,7 +84,7 @@
     }
     .nav a:hover{ background: rgba(20,56,76,.06); }
 
-    /* Hero section */
+    /* Hero */
     .hero{
       background: var(--mint);
       border-radius: 26px;
@@ -126,7 +98,7 @@
       overflow:hidden;
     }
 
-    /* little neon square accent like site */
+    /* neon accent like the new site */
     .hero:after{
       content:"";
       position:absolute;
@@ -140,7 +112,7 @@
 
     .hero h1{
       margin:0;
-      font-size: clamp(36px, 5vw, 54px);
+      font-size: clamp(36px, 5vw, 56px);
       line-height: 0.95;
       letter-spacing: -0.8px;
       color: var(--navy);
@@ -148,7 +120,7 @@
 
     .hero p{
       margin: 14px 0 0;
-      max-width: 56ch;
+      max-width: 58ch;
       line-height: 1.55;
       color: rgba(11,31,43,.84);
       font-size: 15.5px;
@@ -159,13 +131,12 @@
       display:flex;
       flex-wrap:wrap;
       gap: 12px;
+      align-items:stretch;
     }
 
     .btn{
       appearance:none;
-      border: 1px solid rgba(20,56,76,.24);
-      background: #fff;
-      color: var(--navy);
+      border: 1px solid rgba(20,56,76,.22);
       border-radius: 14px;
       padding: 14px 16px;
       font-weight: 850;
@@ -176,31 +147,20 @@
       gap: 10px;
       box-shadow: 0 10px 26px rgba(11,31,43,.10);
       transition: transform .08s ease, filter .08s ease, background .08s ease;
-      min-width: 220px;
+      min-width: 240px;
       justify-content:center;
+      user-select:none;
     }
     .btn:hover{ transform: translateY(-1px); filter: brightness(1.02); }
     .btn:active{ transform: translateY(0px); filter: brightness(.98); }
 
     .btnPrimary{
       background: var(--navy);
-      border-color: rgba(20,56,76,.22);
       color:#fff;
     }
-    .btnPrimary .pill{
-      background: rgba(237,255,28,.16);
-      border: 1px solid rgba(237,255,28,.35);
-      color: var(--neon);
-    }
-
     .btnSecondary{
       background:#fff;
       color: var(--navy);
-    }
-    .btnSecondary .pill{
-      background: rgba(20,56,76,.08);
-      border: 1px solid rgba(20,56,76,.16);
-      color: rgba(20,56,76,.92);
     }
 
     .pill{
@@ -209,9 +169,20 @@
       padding: 6px 10px;
       border-radius: 999px;
       white-space:nowrap;
+      border:1px solid transparent;
+    }
+    .btnPrimary .pill{
+      background: rgba(237,255,28,.16);
+      border-color: rgba(237,255,28,.35);
+      color: var(--neon);
+    }
+    .btnSecondary .pill{
+      background: rgba(20,56,76,.08);
+      border-color: rgba(20,56,76,.16);
+      color: rgba(20,56,76,.92);
     }
 
-    /* Image stack (optional) */
+    /* Right-side “website-like” image blocks */
     .stack{
       display:grid;
       gap: 14px;
@@ -222,47 +193,50 @@
 
     .shot{
       width: 100%;
-      max-width: 440px;
+      max-width: 460px;
       aspect-ratio: 16/10;
-      border-radius: 20px;
+      border-radius: 22px;
       background: #ffffff;
       border: 1px solid rgba(11,31,43,.14);
       box-shadow: 0 18px 50px rgba(11,31,43,.14);
       overflow:hidden;
       position:relative;
     }
-    .shot img{
-      width:100%;
-      height:100%;
-      object-fit: cover;
-      display:block;
+
+    /* subtle TFJ watermark + soft gradient so it feels “designed”, not empty */
+    .shot::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(700px 260px at 25% 15%, rgba(237,255,28,.20), transparent 62%),
+        radial-gradient(540px 260px at 70% 85%, rgba(20,56,76,.12), transparent 55%),
+        linear-gradient(180deg, #ffffff, #f6f8fa);
+      pointer-events:none;
     }
-    /* make the second shot offset like the screenshot collage */
+
+    .shot::after{
+      content:"";
+      position:absolute;
+      left:18px;
+      bottom:16px;
+      width: 170px;
+      height: 34px;
+      background-image: url("logo-blue.png");
+      background-repeat:no-repeat;
+      background-size: contain;
+      opacity: .45;
+      filter: grayscale(10%);
+      pointer-events:none;
+    }
+
     .shot.small{
-      max-width: 380px;
+      max-width: 410px;
       aspect-ratio: 16/11;
       transform: translateX(-26px);
     }
 
-    /* fallback pattern if you don't add images */
-    .fallback{
-      background:
-        radial-gradient(600px 260px at 30% 30%, rgba(237,255,28,.18), transparent 60%),
-        radial-gradient(540px 260px at 70% 80%, rgba(20,56,76,.16), transparent 55%),
-        linear-gradient(180deg, #ffffff, #f5f7f9);
-    }
-    .fallback:before{
-      content:"TFJONES";
-      position:absolute;
-      left:18px;
-      bottom:16px;
-      font-weight:900;
-      letter-spacing:.9px;
-      color: rgba(20,56,76,.55);
-      font-size: 16px;
-    }
-
-    /* Bottom note */
+    /* Footer note */
     .note{
       margin-top: 4px;
       background: var(--card);
@@ -285,6 +259,7 @@
       flex-wrap:wrap;
       justify-content:flex-end;
       font-size: 13px;
+      align-items:center;
     }
     .note a{
       color: rgba(20,56,76,.92);
@@ -294,7 +269,6 @@
     }
     .note a:hover{ border-bottom-color: rgba(237,255,28,.85); }
 
-    /* Mobile */
     @media (max-width: 860px){
       .nav{ display:none; }
       .hero{
@@ -307,9 +281,7 @@
         width: 54px;
         height: 54px;
       }
-      .stack{
-        justify-items:stretch;
-      }
+      .stack{ justify-items:stretch; }
       .shot, .shot.small{
         max-width: 100%;
         transform:none;
@@ -318,6 +290,8 @@
         width:100%;
         min-width: 0;
       }
+      .brand{ min-width: 0; }
+      .brand img{ width: 185px; }
       .note{
         flex-direction:column;
         align-items:flex-start;
@@ -330,17 +304,9 @@
 <body>
   <div class="container">
     <div class="topbar">
-      <a class="brand" href="#" aria-label="TF Jones">
-        <div class="mark" aria-hidden="true">
-          <!-- simple TFJ mark placeholder -->
-          <svg viewBox="0 0 24 24" fill="none">
-            <path d="M6 6h12M10 6v12M10 18h8" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <div class="brandtext">
-          <div class="name">TFJONES</div>
-          <div class="tag">Enhancing Building Safety</div>
-        </div>
+      <a class="brand" href="#" onclick="return false;" aria-label="TF Jones">
+        <!-- Uses your uploaded logo (rename to logo-blue.png) -->
+        <img src="logo-blue.png" alt="TFJONES — Enhancing Building Safety" />
       </a>
 
       <nav class="nav" aria-label="Navigation">
@@ -372,18 +338,9 @@
         </div>
       </div>
 
-      <div class="stack" aria-label="TF Jones imagery">
-        <!-- Optional images: replace src with your real URLs, or leave blank for the fallback look -->
-        <div class="shot fallback">
-          <!-- Example:
-          <img src="HERO_IMAGE_URL" alt="TF Jones team on site" />
-          -->
-        </div>
-        <div class="shot small fallback">
-          <!-- Example:
-          <img src="SECOND_IMAGE_URL" alt="TF Jones van" />
-          -->
-        </div>
+      <div class="stack" aria-label="TF Jones brand blocks">
+        <div class="shot" aria-hidden="true"></div>
+        <div class="shot small" aria-hidden="true"></div>
       </div>
     </section>
 
